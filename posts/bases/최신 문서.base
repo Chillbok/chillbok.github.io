@@ -1,0 +1,13 @@
+filters:
+  and:
+    - file.folder == "posts/notes"
+views:
+  - type: cards
+    name: 뷰
+    order:
+      - file.name
+      - date
+    sort:
+      - property: date
+        direction: DESC
+    limit: 1

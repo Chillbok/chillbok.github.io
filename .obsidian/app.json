@@ -4,5 +4,7 @@
   "showLineNumber": true,
   "newFileLocation": "folder",
   "newFileFolderPath": "posts/notes",
-  "attachmentFolderPath": "posts/assets"
+  "attachmentFolderPath": "posts/assets",
+  "alwaysUpdateLinks": true,
+  "tabSize": 2
 }
