@@ -1,0 +1,14 @@
+filters:
+  and:
+    - file.folder == "posts/notes"
+views:
+  - type: list
+    name: 뷰
+    order:
+      - file.name
+      - date
+    sort:
+      - property: date
+        direction: DESC
+    limit: 10
+    indentProperties: true

@@ -51,6 +51,21 @@ jobs:
           cp .publish/licenses/RIDIBatang-OFL.txt "$RUNNER_TEMP/quartz/quartz/static/licenses/RIDIBatang-OFL.txt"
           rsync -a --delete posts/ "$RUNNER_TEMP/quartz/content/"
 
+          # Obsidian Base filters use vault-rooted paths; Quartz's content root omits "posts/".
+          python3 - "$RUNNER_TEMP/quartz/content" <<'PY'
+          from pathlib import Path
+          import re
+          import sys
+
+          content = Path(sys.argv[1])
+          folder_prefix = re.compile(r'''(file\.folder\s*==\s*["'])posts/''')
+          for base_file in content.rglob("*.base"):
+              source = base_file.read_text(encoding="utf-8")
+              normalized = folder_prefix.sub(r"\1", source)
+              if normalized != source:
+                  base_file.write_text(normalized, encoding="utf-8")
+          PY
+
       - name: Build
         working-directory: ${{ runner.temp }}/quartz
         run: npx quartz build
