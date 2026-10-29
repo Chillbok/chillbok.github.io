@@ -11,3 +11,5 @@ views:
       - property: date
         direction: DESC
     limit: 1
+    cardSize: 380
+    imageFit: contain
