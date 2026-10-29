@@ -2,7 +2,7 @@ filters:
   and:
     - file.folder == "posts/notes"
 views:
-  - type: cards
+  - type: list
     name: 뷰
     order:
       - file.name
@@ -13,3 +13,4 @@ views:
     limit: 1
     cardSize: 380
     imageFit: contain
+    indentProperties: true
