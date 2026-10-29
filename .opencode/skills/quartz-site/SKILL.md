@@ -24,7 +24,7 @@ description: Edit this repository's Quartz 5 and GitHub Pages website, including
 - The site uses the Adwaita Flexoki light/dark palette and the locally bundled RIDIBatang font. Keep the font asset and SIL OFL notice together under `.publish/`.
 - Keep the Quartz dark-mode component enabled; it sets `saved-theme`, which activates the configured light/dark palette.
 - Keep the explorer, search, graph, backlinks, table of contents, reader mode, and navigation components enabled to retain the FPS-site-style Quartz layout.
-- Quartz wraps rendered headings inside a Markdown preview container. Heading overrides in `custom.scss` must target descendants under `.page > #quartz-body .center article`, not direct children of `article`.
+- Quartz wraps rendered Markdown headings inside a preview container and renders `article-title` in `.page-header`. Font overrides must cover both `.page > #quartz-body .center article` descendants and `.page > #quartz-body .page-header h1.article-title`.
 
 ## Build and deploy
 
