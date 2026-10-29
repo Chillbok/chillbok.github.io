@@ -43,9 +43,18 @@ thead {
 }
 
 .page > #quartz-body .center > article > h1 {
+  font-family: "RIDIBatang", ui-serif, serif;
   font-size: clamp(2.5rem, 8vw, 5rem);
   line-height: 1.08;
   letter-spacing: -0.04em;
+}
+
+.page > #quartz-body .center > article > h2,
+.page > #quartz-body .center > article > h3,
+.page > #quartz-body .center > article > h4,
+.page > #quartz-body .center > article > h5,
+.page > #quartz-body .center > article > h6 {
+  font-family: "RIDIBatang", ui-serif, serif;
 }
 
 .page > #quartz-body .center > article p {
