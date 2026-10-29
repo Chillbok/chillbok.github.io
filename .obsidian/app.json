@@ -1,1 +1,8 @@
-{}
+{
+  "showUnsupportedFiles": true,
+  "deleteUnlinkedAttachments": "always",
+  "showLineNumber": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "posts/notes",
+  "attachmentFolderPath": "posts/assets"
+}
