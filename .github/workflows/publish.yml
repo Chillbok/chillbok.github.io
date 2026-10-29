@@ -1,0 +1,71 @@
+name: Publish Quartz site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  QUARTZ_REF: 97a2d05f80c4c50534959b1d0d41cc4b3895625e
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Fetch Quartz
+        run: |
+          git clone --filter=blob:none --no-checkout https://github.com/jackyzha0/quartz.git "$RUNNER_TEMP/quartz"
+          cd "$RUNNER_TEMP/quartz"
+          git checkout --detach "$QUARTZ_REF"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install dependencies
+        working-directory: ${{ runner.temp }}/quartz
+        run: |
+          npm ci
+          npm install --no-audit --no-fund @quartz-themes/default@^1.0.1
+
+      - name: Prepare site
+        run: |
+          cp .publish/quartz.config.yaml "$RUNNER_TEMP/quartz/quartz.config.yaml"
+          cp .publish/custom.scss "$RUNNER_TEMP/quartz/quartz/styles/custom.scss"
+          mkdir -p "$RUNNER_TEMP/quartz/quartz/static/fonts" "$RUNNER_TEMP/quartz/quartz/static/licenses"
+          cp .publish/fonts/RIDIBatang.woff2 "$RUNNER_TEMP/quartz/quartz/static/fonts/RIDIBatang.woff2"
+          cp .publish/licenses/RIDIBatang-OFL.txt "$RUNNER_TEMP/quartz/quartz/static/licenses/RIDIBatang-OFL.txt"
+          rsync -a --delete content/ "$RUNNER_TEMP/quartz/content/"
+
+      - name: Build
+        working-directory: ${{ runner.temp }}/quartz
+        run: npx quartz build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/quartz/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

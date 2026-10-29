@@ -1,0 +1,54 @@
+// Adwaita Flexoki 기반 웹 스타일.
+// RIDIBatang은 SIL Open Font License 1.1로 배포됩니다.
+@font-face {
+  font-family: "RIDIBatang";
+  src: url("./static/fonts/RIDIBatang.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --bodyFont: "RIDIBatang", ui-serif, serif;
+  --headerFont: "RIDIBatang", ui-serif, serif;
+  --codeFont: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.page > #quartz-body {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "grid-header"
+    "grid-center"
+    "grid-footer";
+  min-height: 100vh;
+}
+
+.page > #quartz-body .center > article {
+  width: min(100%, 48rem);
+  margin: 0 auto;
+  padding: clamp(4rem, 14vh, 9rem) clamp(1.25rem, 5vw, 3rem);
+}
+
+.page > #quartz-body .center > article > h1 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.page > #quartz-body .center > article p {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  line-height: 1.8;
+}
+
+// mermaid의 색상 파서 호환을 위해 정적인 테마 강조색을 사용한다.
+html:root,
+html:root[saved-theme="light"] {
+  --color-accent-1: hsl(174.95, 56.89%, 32.75%);
+  --color-accent-2: hsl(73.33, 84.17%, 27.25%);
+}
+
+html:root[saved-theme="dark"] {
+  --color-accent-1: hsl(174.59, 48.9%, 44.51%);
+  --color-accent-2: hsl(71.75, 45.97%, 41.37%);
+}
