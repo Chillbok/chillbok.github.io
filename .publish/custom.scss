@@ -8,10 +8,22 @@
   font-display: swap;
 }
 
-:root {
+html:root,
+html:root[saved-theme="light"],
+html:root[saved-theme="dark"] {
   --bodyFont: "RIDIBatang", ui-serif, serif;
   --headerFont: "RIDIBatang", ui-serif, serif;
   --codeFont: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+thead {
+  font-family: "RIDIBatang", ui-serif, serif;
 }
 
 .page > #quartz-body {

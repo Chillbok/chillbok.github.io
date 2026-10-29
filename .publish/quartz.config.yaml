@@ -206,11 +206,10 @@ plugins:
       position: left
       priority: 10
   - source: "@quartz-community/darkmode"
-    enabled: false
+    enabled: true
     layout:
-      position: left
-      priority: 30
-      group: toolbar
+      position: footer
+      priority: 20
   - source: "@quartz-community/reader-mode"
     enabled: false
     layout:
