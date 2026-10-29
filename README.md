@@ -4,7 +4,7 @@
 
 - 주소: <https://chillbok.github.io/>
 - 배포: `.github/workflows/publish.yml` (`main` push 또는 수동 실행)
-- 콘텐츠: `content/`
+- 콘텐츠: `posts/` 안의 파일과 하위 폴더만 사이트에 포함됩니다.
 - Quartz 설정 및 테마: `.publish/`
 
 사이트는 Obsidian의 Adwaita Flexoki 테마에서 색상 팔레트와 RIDIBatang 폰트를 가져옵니다.

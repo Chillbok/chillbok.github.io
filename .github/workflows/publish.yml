@@ -49,7 +49,7 @@ jobs:
           mkdir -p "$RUNNER_TEMP/quartz/quartz/static/fonts" "$RUNNER_TEMP/quartz/quartz/static/licenses"
           cp .publish/fonts/RIDIBatang.woff2 "$RUNNER_TEMP/quartz/quartz/static/fonts/RIDIBatang.woff2"
           cp .publish/licenses/RIDIBatang-OFL.txt "$RUNNER_TEMP/quartz/quartz/static/licenses/RIDIBatang-OFL.txt"
-          rsync -a --delete content/ "$RUNNER_TEMP/quartz/content/"
+          rsync -a --delete posts/ "$RUNNER_TEMP/quartz/content/"
 
       - name: Build
         working-directory: ${{ runner.temp }}/quartz

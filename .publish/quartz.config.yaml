@@ -46,7 +46,7 @@ configuration:
         textHighlight: "#d0a21588"
 plugins:
   - source: "@quartz-community/created-modified-date"
-    enabled: false
+    enabled: true
     options:
       defaultDateType: modified
       priority:
@@ -82,7 +82,7 @@ plugins:
     enabled: true
     order: 40
   - source: "@quartz-community/table-of-contents"
-    enabled: false
+    enabled: true
     order: 50
     layout:
       position: right
@@ -125,11 +125,11 @@ plugins:
   - source: "@quartz-community/explicit-publish"
     enabled: false
   - source: "@quartz-community/unlisted-pages"
-    enabled: false
+    enabled: true
     options: {}
     order: 45
   - source: "@quartz-community/encrypted-pages"
-    enabled: false
+    enabled: true
     options:
       iterations: 600000
       passwordField: password
@@ -155,25 +155,25 @@ plugins:
   - source: "@quartz-community/cname"
     enabled: false
   - source: "@quartz-community/canvas-page"
-    enabled: false
+    enabled: true
   - source: "@quartz-community/content-page"
     enabled: true
   - source: "@quartz-community/folder-page"
-    enabled: false
+    enabled: true
   - source: "@quartz-community/tag-page"
-    enabled: false
+    enabled: true
   - source: "@quartz-community/explorer"
-    enabled: false
+    enabled: true
     layout:
       position: left
       priority: 50
   - source: "@quartz-community/graph"
-    enabled: false
+    enabled: true
     layout:
       position: right
       priority: 10
   - source: "@quartz-community/search"
-    enabled: false
+    enabled: true
     layout:
       position: left
       priority: 20
@@ -181,17 +181,17 @@ plugins:
       groupOptions:
         grow: true
   - source: "@quartz-community/backlinks"
-    enabled: false
+    enabled: true
     layout:
       position: right
       priority: 50
   - source: "@quartz-community/article-title"
-    enabled: false
+    enabled: true
     layout:
       position: beforeBody
       priority: 10
   - source: "@quartz-community/content-meta"
-    enabled: false
+    enabled: true
     layout:
       position: beforeBody
       priority: 20
@@ -201,23 +201,24 @@ plugins:
       position: beforeBody
       priority: 30
   - source: "@quartz-community/page-title"
-    enabled: false
+    enabled: true
     layout:
       position: left
       priority: 10
   - source: "@quartz-community/darkmode"
     enabled: true
     layout:
-      position: footer
-      priority: 20
+      position: left
+      priority: 30
+      group: toolbar
   - source: "@quartz-community/reader-mode"
-    enabled: false
+    enabled: true
     layout:
       position: left
       priority: 35
       group: toolbar
   - source: "@quartz-community/breadcrumbs"
-    enabled: false
+    enabled: true
     layout:
       position: beforeBody
       priority: 5
@@ -241,7 +242,7 @@ plugins:
   - source: "@quartz-community/recent-notes"
     enabled: false
   - source: "@quartz-community/spacer"
-    enabled: false
+    enabled: true
     options: {}
     order: 25
     layout:
@@ -249,7 +250,7 @@ plugins:
       priority: 25
       display: mobile-only
   - source: "@quartz-community/bases-page"
-    enabled: false
+    enabled: true
     options: {}
     order: 50
   - source: "@quartz-community/note-properties"
@@ -270,7 +271,7 @@ plugins:
       priority: 15
       display: all
   - source: "@quartz-community/obsidian-plugin-excalidraw"
-    enabled: false
+    enabled: true
     options:
       enableInteraction: true
       darkMode: auto

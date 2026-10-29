@@ -26,40 +26,14 @@ thead {
   font-family: "RIDIBatang", ui-serif, serif;
 }
 
-.page > #quartz-body {
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: auto 1fr auto;
-  grid-template-areas:
-    "grid-header"
-    "grid-center"
-    "grid-footer";
-  min-height: 100vh;
-}
-
-.page > #quartz-body .center > article {
-  width: min(100%, 48rem);
-  margin: 0 auto;
-  padding: clamp(4rem, 14vh, 9rem) clamp(1.25rem, 5vw, 3rem);
-}
-
-.page > #quartz-body .center article h1 {
-  font-family: "RIDIBatang", ui-serif, serif;
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  line-height: 1.08;
-  letter-spacing: -0.04em;
-}
-
+.page > #quartz-body .center article h1,
 .page > #quartz-body .center article h2,
 .page > #quartz-body .center article h3,
 .page > #quartz-body .center article h4,
 .page > #quartz-body .center article h5,
-.page > #quartz-body .center article h6 {
+.page > #quartz-body .center article h6,
+.page > #quartz-body .center article thead {
   font-family: "RIDIBatang", ui-serif, serif;
-}
-
-.page > #quartz-body .center > article p {
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
-  line-height: 1.8;
 }
 
 // mermaid의 색상 파서 호환을 위해 정적인 테마 강조색을 사용한다.
