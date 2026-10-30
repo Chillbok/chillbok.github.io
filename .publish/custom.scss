@@ -11,6 +11,7 @@
 html:root,
 html:root[saved-theme="light"],
 html:root[saved-theme="dark"] {
+  --titleFont: "RIDIBatang", ui-serif, serif;
   --bodyFont: "RIDIBatang", ui-serif, serif;
   --headerFont: "RIDIBatang", ui-serif, serif;
   --codeFont: ui-monospace, SFMono-Regular, Menlo, monospace;
